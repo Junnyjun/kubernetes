@@ -74,3 +74,59 @@ etcd외의 다른 구성 요소는 상태 값을 관리하지 않는다. etcd의
 1. kube-proxy - 쿠버네티스 클러스터는 파드가 위치한 노드에 kube-proxy를 통해 파드가 통신할 수 있는 네트워크를 설정.
 2. pod - 이미 배포된 파드에 접속하고 필요한 내용을 전달받는다.
 
+
+
+---
+
+##### 쿠버네티스 구성 요소의 기능 검증
+
+
+
+> kubectl
+
+클러스터 정보 ( /etc/kubernetes/admin.conf)의 정보를 바탕으로 명령을 내린다
+
+>kubelet
+
+파드의 생성과 상태 관리 및 복구 등을 담당하는 매우 중요한 구성 요소.
+
+> kube-proxy 
+
+파드의 통신을 담당.
+
+
+
+---
+
+##### 쿠버네티스 기본 사용법
+
+
+
+> ###### 파드를 생성하는 방법
+
+```bash
+kubectl run "pod 명" --image=nginx
+```
+
+```bash
+kubectl create deployment "deployment 명" ---image=nginx
+```
+
+
+
+:grey_question: Run & create
+Run 으로 실행하면 단일 파드 1개만 생성되고 관리되지만,
+
+create로 실행하면 deployment 라는 관리 그룹내에서 파드가 생성된다
+
+
+
+---
+
+##### Object란
+
+쿠버네티스를 사용하는 관점에서 pod와 deployment는 spec과 status 등의 값을 가지고 있다.
+
+
+
+- Pod - 쿠버네티스에서 실행되는 최소 단위, 즉 우
